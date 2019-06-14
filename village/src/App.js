@@ -54,27 +54,36 @@ class App extends Component {
       });
   };
 
-    render() {
+  render() {
     const NewButton = () => {
-      return (
-        <NavLink to='/new'>Add</NavLink>
-      );
-    }
+      return <NavLink to="/new">Add</NavLink>;
+    };
 
     const BackButton = () => {
-      return (
-        <NavLink to='/'>Back</NavLink>
-      );
-    }
-
-
+      return <NavLink to="/">Back</NavLink>;
+    };
 
     return (
-    <div className = "App" >
-      <Route exact path='/new' component={BackButton}  />
-      <Route exact path='/new' render={props => <SmurfForm {...props} createHandler={this.createHandler} />} />
-      <Route exact path='/' component={NewButton}  />
-      <Route path="/" render={props => <Smurfs {...props} smurfs={this.state.smurfs} deleteHandler={this.deleteHandler} /> }  />
+      <div className="App">
+        <Route exact path="/new" component={BackButton} />
+        <Route
+          exact
+          path="/new"
+          render={props => (
+            <SmurfForm {...props} createHandler={this.createHandler} />
+          )}
+        />
+        <Route exact path="/" component={NewButton} />
+        <Route
+          path="/"
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteHandler={this.deleteHandler}
+            />
+          )}
+        />
       </div>
     );
   }
